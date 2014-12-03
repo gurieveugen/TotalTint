@@ -5,15 +5,15 @@
  */
 ?>
 	<footer id="footer">
-		<?php if(!is_front_page()): ?>
+		<?php if(!is_front_page() && !is_page(4)): ?>
 		<section class="b-info-row">
 			<div class="container">
 				<div class="text">
 					<p>Looking for a quality and affordable tinting solutions for your home, car or office?</p>
 				</div>
 				<div class="buttons">
-					<a href="#" class="btn-b yellow">Get a Quote</a>
-					<a href="#" class="btn-b">View SERVICES</a>
+					<a href="<?php echo get_permalink( 4 ); ?>" class="btn-b yellow">Get a Quote</a>
+					<a href="<?php echo get_permalink( 8 ); ?>" class="btn-b">View SERVICES</a>
 				</div>
 			</div>
 		</section>

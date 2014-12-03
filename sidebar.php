@@ -1,11 +1,9 @@
-<?php
-/**
- * @package WordPress
- * @subpackage Base_theme
- */
-?>
-<?php if ( is_active_sidebar('Right Sidebar') ) : ?>
-<div id="sidebar">
-	<?php dynamic_sidebar( 'Right Sidebar' ); ?>
+<?php if ( is_active_sidebar('promo-boxes') ) : ?>
+<div class="container">
+	<section class="widgets-section cf">
+		<div class="row">
+			<?php dynamic_sidebar( 'promo-boxes' ); ?>
+		</div>
+	</section>
 </div>
 <?php endif; ?>

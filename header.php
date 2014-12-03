@@ -1,8 +1,18 @@
 <?php
-/**
- * @package WordPress
- * @subpackage Base_Theme
- */
+$options = \__::getOptions(
+	array( 
+		'sc_phone', 
+		'sc_email',
+		'sc_street',
+		'sc_city',
+		'sc_operation_time',
+		'sc_sunday_operation_time',
+		'ssn_facebook',
+		'ssn_twiiter',
+		'ssn_youtube'
+	)
+);
+extract($options);
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -51,15 +61,15 @@
 						<aside class="b-contact">
 							<i class="fa fa-phone"></i>
 							<div class="holder">
-								<h5>08 92968717</h5>
-								<a href="mailto:info@totaltintsolutions.com.au">info@totaltintsolutions.com.au</a>
+								<h5><?php echo $sc_phone; ?></h5>
+								<a href="mailto:<?php echo $sc_email; ?>"><?php echo $sc_email; ?></a>
 							</div>
 						</aside>
 						<aside class="b-contact">
 							<i class="fa fa-home"></i>
 							<address class="holder">
-								<h5>123 Street rd,</h5>
-								<p>Osborne Park, Perth</p>
+								<h5><?php echo $sc_street; ?></h5>
+								<p><?php echo $sc_city; ?></p>
 							</address>
 						</aside>
 						<aside class="b-contact">
@@ -71,9 +81,9 @@
 						</aside>
 					</div>
 					<ul class="b-socials">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="<?php echo $ssn_facebook;?>"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="<?php echo $ssn_twiiter;?>"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="<?php echo $ssn_youtube;?>"><i class="fa fa-youtube"></i></a></li>
 					</ul>
 				</div>
 				<?php wp_nav_menu( array(

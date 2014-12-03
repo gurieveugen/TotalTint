@@ -1,37 +1,48 @@
 <?php
-/*
- * @package WordPress
- * Template Name: Contact Page
-*/
+$options = \__::getOptions(
+	array( 
+		'sc_phone',
+		'sc_fax', 
+		'sc_email',
+		'sc_street',
+		'sc_city',
+		'sc_operation_time',
+		'sc_sunday_operation_time',
+		'ssn_facebook',
+		'ssn_twiiter',
+		'ssn_youtube'
+	)
+);
+extract($options);
 ?>
 <?php get_header(); ?>
 
 <?php if ( have_posts() ) : the_post(); ?>
 <div class="container">
 	<div class="b-map-container">
-		<img src="<?php echo TDU; ?>/images/img-map.jpg" alt="">
+		<?php echo do_shortcode('[gmap]'); ?>
 	</div>
 	<article>
 		<h1 class="title-page"><?php the_title(); ?></h1>
 		<div class="b-contact-info-container row">
 			<div class="col-md-4">
 				<div class="b-contact-info">
-					<p><strong>Phone:</strong> (08) 321 4567</p>
-					<p><strong>Fax:</strong> (08 9865 3214</p>
-					<p><strong>Email:</strong> <a href="mailto:info@totaltinesolutions.com.au">info@totaltinesolutions.com.au</a></p>
+					<p><strong>Phone:</strong> <?php echo $sc_phone; ?></p>
+					<p><strong>Fax:</strong> <?php echo $sc_fax; ?></p>
+					<p><strong>Email:</strong> <a href="mailto:<?php echo $sc_email; ?>"><?php echo $sc_email; ?></a></p>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="b-contact-info">
 					<h4>Address</h4>
-					<address>Address: 123 Street rd, Osborne Park. <br> Perth, Western Australia. <br> 6000</address>
+					<address>Address: <?php echo $sc_street; ?> <br> <?php echo $sc_city; ?></address>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="b-contact-info">
 					<h4>Opening Hours:</h4>
-					<p>Monday to Saturday: 8am - 5pm</p>
-					<p>Sunday, CLOSED.</p>
+					<p><?php echo $sc_operation_time; ?></p>
+					<p><?php echo $sc_sunday_operation_time; ?></p>
 				</div>
 			</div>
 		</div>
@@ -48,4 +59,23 @@
 		<?php echo do_shortcode('[contact-form-7 id="32" title="Contact Form"]'); ?>
 	</div>
 </section>
+<script>
+	google.maps.event.addDomListener(window, 'load', initializeGMap);
+	function initializeGMap() 
+	{
+		var myLatlng = new google.maps.LatLng(jQuery('#map-canvas').data('lat'), jQuery('#map-canvas').data('lng'));
+		var mapOptions = {
+			zoom: 14,
+			center: myLatlng,
+			disableDefaultUI: true
+		}
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var marker = new google.maps.Marker({
+			position: myLatlng,
+			map: map,
+			title: 'My location!'
+		});
+	}
+</script>
 <?php get_footer(); ?>
