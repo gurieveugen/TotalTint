@@ -1,0 +1,94 @@
+.container {
+	width: 1172px
+}
+#wrapper {
+	padding: 0 0 140px
+}
+.header-area .logo {
+	float: left;
+	margin: 0 30px 0 0
+}
+.header-area .b-contact {
+	float: left;
+	margin: 23px 20px 0 0
+}
+.header-area .b-socials {
+	float: right;
+	margin: 30px 0 0
+}
+.main-slider-container {
+	height: 635px
+}
+.main-slider {
+	position: absolute;
+	left: 50%;
+	width: 1706px;
+	margin: 0 0 0 -853px
+}
+.main-slider:before, .main-slider:after {
+	content: '';
+	position: absolute;
+	width: 284px;
+	height: 635px;
+	top: 0;
+	left: 0;
+	z-index: 5
+}
+.main-slider:after {
+	background-position: -284px 0;
+	left: auto;
+	right: 0
+}
+.main-slider .container {
+	height: 635px
+}
+.main-slider .box {
+	top: 185px;
+	left: 130px;
+	width: 448px
+}
+.main-slider .flex-direction-nav .flex-prev {
+	left: 310px
+}
+.main-slider .flex-direction-nav .flex-next {
+	right: 305px
+}
+.b-info-row .text {
+	padding: 10px 0 0
+}
+.b-info-row.v1 {
+	position: relative;
+	z-index: 150;
+	margin: -82px 0 5px
+}
+.form-contact {
+	padding: 0 5px
+}
+.form-contact .column-fields {
+	width: 376px
+}
+.form-contact .column-message {
+	width: 695px
+}
+.form-contact .column-message .f-row label {
+	width: 80px
+}
+.form-contact .fields {
+	float: right;
+	width: 268px
+}
+.form-contact .field-message {
+	float: right;
+	width: 615px
+}
+.form-contact .f-row label {
+	padding: 12px 3px 0 5px;
+	margin: 0;
+	float: left;
+	width: 108px
+}
+.form-contact input.btn-b {
+	margin: 8px 5px 0 0
+}
+
+/* # sourceMappingURL=md.css.map */
